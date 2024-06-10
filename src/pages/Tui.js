@@ -12,9 +12,6 @@ function Tui() {
         console.log(data);
     };
 
-    // Empty Value 는 ' '
-    const content = '<h1>테스트</h1><br/><p>테스트1234</p>';
-
     const onUploadImage = async (blob, callback) => {
         //console.log(blob);
 
@@ -33,10 +30,15 @@ function Tui() {
         })
     };
 
+    const onSetContent = () => {
+        const content = '<h1>테스트</h1><br/><p>테스트1234</p>';
+        editorRef.current.getInstance().setHTML(content);
+    };
+
     return (
         <>
         <Editor
-            initialValue={content}
+            initialValue=" "
             previewStyle="vertical"
             height="500px"
             initialEditType="wysiwyg"
@@ -50,6 +52,7 @@ function Tui() {
             }
         />
         <button onClick={onConfirmConsole}>콘솔 확인</button>
+        <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }
