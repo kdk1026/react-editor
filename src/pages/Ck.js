@@ -2,7 +2,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
 import { useState } from "react";
-import UploadAdapter from "../js/ckeditor/UploadAdapter";
+import UploadAdapter from "../assets/js/ckeditor/UploadAdapter";
 
 function Ck() {
     const [content, setContent] = useState("");
