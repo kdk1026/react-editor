@@ -38,7 +38,7 @@ function Tui() {
     return (
         <>
         <Editor
-            initialValue=" "
+            initialValue="initialValue"
             previewStyle="vertical"
             height="500px"
             initialEditType="wysiwyg"

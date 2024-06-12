@@ -24,8 +24,6 @@ function Quill() {
         ['clean']
     ];
 
-    const editorRef = useRef();
-
     const imageHandler = () => {
         const fileInput = document.createElement('input');
         fileInput.setAttribute('type', 'file');
@@ -65,10 +63,16 @@ function Quill() {
     }
    }, []);
 
+    const editorRef = useRef();
+
     const [content, setContent] = useState("");
 
     const onConfirmConsole = () => {
         console.log(content);
+    };
+
+    const onSetContent = () => {
+        alert('에디터에 반영 안되서 불가, value 속성은 변경 X...');
     };
 
     return (
@@ -80,6 +84,7 @@ function Quill() {
             ref={editorRef}
         />
         <button onClick={onConfirmConsole}>콘솔 확인</button>
+        <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }

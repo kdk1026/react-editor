@@ -18,6 +18,12 @@ function Ck() {
         };
     };
 
+    const onSetContent = () => {
+        alert('에디터에 반영 안되서 불가');
+    };
+
+    const data = '<h1>initialValue</h1>';
+
     return (
         <>
         <CKEditor
@@ -31,8 +37,10 @@ function Ck() {
             onChange={(event, editor) => {
                 setContent(editor.getData());
             }}
+            data={data}
         />
         <button onClick={onConfirmConsole}>콘솔 확인</button>
+        <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }
