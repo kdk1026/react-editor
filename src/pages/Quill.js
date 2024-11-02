@@ -65,26 +65,27 @@ function Quill() {
 
     const editorRef = useRef();
 
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState('<h1>initialValue</h1>');
 
     const onConfirmConsole = () => {
         console.log(content);
     };
 
     const onSetContent = () => {
-        alert('에디터에 반영 안되서 불가, value 속성은 변경 X...');
+        setContent('<h1>테스트</h1><br/><p>테스트1234</p>');
     };
 
     return (
         <>
-        <ReactQuill
-            theme="snow"
-            modules={modules}
-            onChange={setContent}
-            ref={editorRef}
-        />
-        <button onClick={onConfirmConsole}>콘솔 확인</button>
-        <button onClick={onSetContent}>내용 넣기</button>
+            <ReactQuill
+                theme="snow"
+                modules={modules}
+                onChange={setContent}
+                ref={editorRef}
+                value={content}
+            />
+            <button onClick={onConfirmConsole}>콘솔 확인</button>
+            <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }

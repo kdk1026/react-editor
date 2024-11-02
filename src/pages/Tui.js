@@ -37,22 +37,22 @@ function Tui() {
 
     return (
         <>
-        <Editor
-            initialValue="initialValue"
-            previewStyle="vertical"
-            height="500px"
-            initialEditType="wysiwyg"
-            useCommandShortcut={false}
-            language="ko-KR"
-            ref={editorRef}
-            hooks={
-                {
-                    addImageBlobHook: onUploadImage
+            <Editor
+                initialValue="<h1>initialValue</h1>"
+                previewStyle="vertical"
+                height="500px"
+                initialEditType="wysiwyg"
+                useCommandShortcut={false}
+                language="ko-KR"
+                ref={editorRef}
+                hooks={
+                    {
+                        addImageBlobHook: onUploadImage
+                    }
                 }
-            }
-        />
-        <button onClick={onConfirmConsole}>콘솔 확인</button>
-        <button onClick={onSetContent}>내용 넣기</button>
+            />
+            <button onClick={onConfirmConsole}>콘솔 확인</button>
+            <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }

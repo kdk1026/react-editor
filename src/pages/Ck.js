@@ -5,7 +5,7 @@ import { useState } from "react";
 import UploadAdapter from "../assets/js/ckeditor/UploadAdapter";
 
 function Ck() {
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState('<h1>initialValue</h1>');
 
     const onConfirmConsole = () => {
         console.log(content);
@@ -19,28 +19,26 @@ function Ck() {
     };
 
     const onSetContent = () => {
-        alert('에디터에 반영 안되서 불가');
+        setContent('<h1>테스트</h1><br/><p>테스트1234</p>');
     };
-
-    const data = '<h1>initialValue</h1>';
 
     return (
         <>
-        <CKEditor
-            editor={ClassicEditor}
-            config={
-                {
-                    language: 'ko',
-                    extraPlugins: [uploadPlugin]
+            <CKEditor
+                editor={ClassicEditor}
+                config={
+                    {
+                        language: 'ko',
+                        extraPlugins: [uploadPlugin]
+                    }
                 }
-            }
-            onChange={(event, editor) => {
-                setContent(editor.getData());
-            }}
-            data={data}
-        />
-        <button onClick={onConfirmConsole}>콘솔 확인</button>
-        <button onClick={onSetContent}>내용 넣기</button>
+                onChange={(event, editor) => {
+                    setContent(editor.getData());
+                }}
+                data={content}
+            />
+            <button onClick={onConfirmConsole}>콘솔 확인</button>
+            <button onClick={onSetContent}>내용 넣기</button>
         </>
     )
 }
